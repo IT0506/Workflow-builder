@@ -1,70 +1,102 @@
-# Getting Started with Create React App
+🚀 Workflow Builder (Pipeline DAG Validator)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A full-stack Workflow Builder application that allows users to:
 
-## Available Scripts
+-Drag and drop different node types
 
-In the project directory, you can run:
+-Connect nodes visually
 
-### `npm start`
+-Submit the pipeline
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+-Validate whether the graph is a DAG (Directed Acyclic Graph)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+-View node count, edge count, and DAG validation result
 
-### `npm test`
+Built with:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+⚛ React (Frontend)
 
-### `npm run build`
+🌊 React Flow (Graph UI)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+🐻 Zustand (State Management)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+🎨 Tailwind CSS (Styling)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+⚡ FastAPI (Backend)
 
-### `npm run eject`
+🧠 DFS-based Cycle Detection (DAG Check)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+📌 Features
+🧩 Drag-and-Drop Nodes
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Input Node
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+LLM Node
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Output Node
 
-## Learn More
+Text Node
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+🔗 Connect Nodes
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Create directed edges between nodes visually.
 
-### Code Splitting
+✅ DAG Validation
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+On submit, backend checks:
 
-### Analyzing the Bundle Size
+Total number of nodes
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Total number of edges
 
-### Making a Progressive Web App
+Whether the graph contains a cycle
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+🔁 Cycle Detection
 
-### Advanced Configuration
+Uses Depth-First Search (DFS) with recursion stack to detect cycles.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+🏗 Project Structure
+frontend/
+  src/
+    App.js
+    ui.js
+    toolbar.js
+    submit.js
+    store.js
+    nodes/
+backend/
+  main.py
 
-### Deployment
+  
+🛠 Installation & Setup
+1️⃣ Clone Repository
+git clone https://github.com/your-username/workflow-builder.git
+cd workflow-builder
+🖥 Frontend Setup (React)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Go inside frontend folder:
 
-### `npm run build` fails to minify
+cd frontend
+npm install
+npm start
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Frontend runs at:
+
+http://localhost:3000
+
+
+🧠 Backend Setup (FastAPI)
+
+Go inside backend folder:
+
+cd backend
+pip install -r requirements.txt
+uvicorn main:app --reload --port 8000
+
+Backend runs at:
+
+http://127.0.0.1:8000
+
+Test root:
+
+http://127.0.0.1:8000/
